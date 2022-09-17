@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/oneplus/oscar
+DEVICE_PATH := device/realme/RMX3471
 
 # Architecture
 TARGET_ARCH := arm64
