@@ -16,20 +16,18 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/oneplus/oscar
-
 # Release name
-PRODUCT_RELEASE_NAME := oscar
+PRODUCT_RELEASE_NAME := RMX3471
 
 # Inherit from holi device
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := oscar
+TARGET_OTA_ASSERT_DEVICE := RMX3471,RMX3472
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := oscar
-PRODUCT_NAME := twrp_oscar
-PRODUCT_BRAND := OnePlus
-PRODUCT_MODEL := CPH2381
-PRODUCT_MANUFACTURER := OnePlus
+PRODUCT_DEVICE := RMX3471
+PRODUCT_NAME := twrp_RMX3471
+PRODUCT_BRAND := Realme
+PRODUCT_MODEL := 9 Pro
+PRODUCT_MANUFACTURER := Realme

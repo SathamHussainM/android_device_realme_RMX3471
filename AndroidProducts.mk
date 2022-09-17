@@ -15,9 +15,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_oscar.mk
+    $(LOCAL_DIR)/twrp_RMX3471.mk
 
-COMMON_LUNCH_CHOICES := \
-    twrp_oscar-user \
-    twrp_oscar-userdebug \
-    twrp_oscar-eng
+COMMON_LUNCH_CHOICES := twrp_RMX3471-eng
