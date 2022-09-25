@@ -14,14 +14,8 @@
 # limitations under the License.
 #
 
-# Configure base.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
-
-# Configure core_64_bit_only.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-
-# Configure gsi_keys.mk
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+# Dynamic partition stuff
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Configure Virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
@@ -32,11 +26,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Configure twrp
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Boot control HAL
 PRODUCT_PACKAGES += \
     bootctrl.holi.recovery \
     android.hardware.boot@1.1-impl-qti.recovery
 
-#Load module    
+# Load module
 TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko apr_dlkm.ko q6_notifier_dlkm.ko q6_pdr_dlkm.ko snd_event_dlkm.ko"
 
 # qcom decryption
@@ -53,13 +48,16 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 # VNDK API
 PRODUCT_TARGET_VNDK_VERSION := 31
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.dm_default_key.options_format.version=2
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
-TWRP_REQUIRED_MODULES += oos_prebuilt
+# Prebuilt Kernel
+TWRP_REQUIRED_MODULES += realme_prebuilt
+
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hidl.base@1.0 \
+    bootctrl.holi.recovery
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so

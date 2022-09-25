@@ -19,11 +19,12 @@
 # Release name
 PRODUCT_RELEASE_NAME := RMX3471
 
-# Inherit from holi device
-$(call inherit-product, $(DEVICE_PATH)/device.mk)
+$(call inherit-product, device/realme/RMX3471/device.mk)
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := RMX3471,RMX3472
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX3471
