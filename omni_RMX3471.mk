@@ -28,7 +28,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX3471
-PRODUCT_NAME := twrp_RMX3471
+PRODUCT_NAME := omni_RMX3471
 PRODUCT_BRAND := Realme
 PRODUCT_MODEL := 9 Pro
 PRODUCT_MANUFACTURER := Realme
